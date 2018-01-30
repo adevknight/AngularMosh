@@ -8,9 +8,10 @@ import { Http } from '@angular/http';
 })
 export class PostsComponent implements OnInit {
   posts: any[];
+  private url = 'https://jsonplaceholder.typicode.com/posts';
 
-  constructor(http: Http) { 
-    http.get('https://jsonplaceholder.typicode.com/posts').subscribe(res => {
+  constructor(private http: Http) { 
+    http.get(this.url).subscribe(res => {
       this.posts = res.json();
     });
   }
@@ -18,4 +19,13 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
   }
 
+  createPost(title: HTMLInputElement) {
+    const sendedData = {
+      title: title.value
+    };
+    this.http.post(this.url, JSON.stringify(sendedData)).subscribe(res => {
+      console.log('POST: ' + sendedData.title.toString() + ' is SUCCESSFUL');
+      console.log(res.json());
+    });
+  }
 }
