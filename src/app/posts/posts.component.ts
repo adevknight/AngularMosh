@@ -42,4 +42,10 @@ export class PostsComponent implements OnInit {
       console.log(res);
     });
   }
+
+  deletePost(post) {
+    this.http.delete(this.url + '/' + post.id).subscribe(res => {
+      this.posts.splice(this.posts.indexOf(post), 1);
+    });
+  }
 }
