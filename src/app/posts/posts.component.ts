@@ -24,6 +24,8 @@ export class PostsComponent implements OnInit {
       title: title.value
     };
 
+    title.value = '';
+
     this.http.post(this.url, JSON.stringify(sendedData)).subscribe(res => {
       sendedData.id = res.json().id;
       console.log(sendedData);
