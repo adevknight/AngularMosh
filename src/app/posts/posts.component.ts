@@ -8,7 +8,11 @@ import { Http } from '@angular/http';
 })
 export class PostsComponent implements OnInit {
 
-  constructor(http: Http) { }
+  constructor(http: Http) { 
+    http.get('https://jsonplaceholder.typicode.com/posts').subscribe(res => {
+      console.log(res.json());
+    });
+  }
 
   ngOnInit() {
   }
