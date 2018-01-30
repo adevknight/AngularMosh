@@ -20,10 +20,14 @@ export class PostsComponent implements OnInit {
   }
 
   createPost(title: HTMLInputElement) {
-    const sendedData = {
+    const sendedData: any = {
       title: title.value
     };
+
     this.http.post(this.url, JSON.stringify(sendedData)).subscribe(res => {
+      sendedData.id = res.json().id;
+      console.log(sendedData);
+
       console.log('POST: ' + sendedData.title.toString() + ' is SUCCESSFUL');
       console.log(res.json());
     });
