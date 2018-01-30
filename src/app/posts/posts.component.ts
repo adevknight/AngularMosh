@@ -36,4 +36,10 @@ export class PostsComponent implements OnInit {
       console.log(res.json());
     });
   }
+
+  updatePost(post) {
+    this.http.patch(this.url + '/' + post.id, JSON.stringify({ isRead: true })).subscribe(res => {
+      console.log(res);
+    });
+  }
 }

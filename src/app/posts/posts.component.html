@@ -1,4 +1,9 @@
-<input type="text" placeholder="Input Title Here" class="form-control" #title (keyup.enter)="createPost(title)" >
+<input type="text" placeholder="Input Title Here" class="form-control" #title (keyup.enter)="createPost(title)">
 <ul *ngFor="let post of posts" class="list-group">
-  <li class="list-group-item">{{ post.id }} - {{ post.title }}</li>
+  <li class="list-group-item">
+    <button class="btn btn-primary" (click)="updatePost(post)">
+      UPDATE
+    </button>
+    {{ post.id }} - {{ post.title }}
+  </li>
 </ul>
