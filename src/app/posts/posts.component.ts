@@ -1,5 +1,5 @@
+import { PostService } from './../services/post.service';
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-posts',
@@ -8,14 +8,13 @@ import { Http } from '@angular/http';
 })
 export class PostsComponent implements OnInit {
   posts: any[];
-  private url = 'https://jsonplaceholder.typicode.com/posts';
 
-  constructor(private http: Http) {
+  constructor(private postService: PostService) {
   }
 
   ngOnInit() {
     // Putting Http.get() inside ngOnInit() is BEST PRACTICE
-    this.http.get(this.url).subscribe(res => {
+    this.postService.getPosts().subscribe(res => {
       this.posts = res.json();
     });
   }
@@ -27,7 +26,7 @@ export class PostsComponent implements OnInit {
 
     title.value = '';
 
-    this.http.post(this.url, JSON.stringify(sendedData)).subscribe(res => {
+    this.postService.createPost(sendedData).subscribe(res => {
       sendedData.id = res.json().id;
       console.log(sendedData);
 
@@ -39,13 +38,13 @@ export class PostsComponent implements OnInit {
   }
 
   updatePost(post) {
-    this.http.put(this.url + '/' + post.id, JSON.stringify(post)).subscribe(res => {
+    this.postService.updatePost(post).subscribe(res => {
       console.log(res);
     });
   }
 
   deletePost(post) {
-    this.http.delete(this.url + '/' + post.id).subscribe(res => {
+    this.postService.deletePost(post).subscribe(res => {
       this.posts.splice(this.posts.indexOf(post), 1);
     });
   }
