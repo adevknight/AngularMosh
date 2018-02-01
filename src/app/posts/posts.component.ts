@@ -52,8 +52,7 @@ export class PostsComponent implements OnInit {
       this.posts.splice(this.posts.indexOf(post), 1);
     }, (err: Response) => {
       if (err.status === 404) {
-        console.log('There is Expected Error');
-        console.log(err);
+        this.myform.setErrors(err.json());
       } else {
         console.log('There is Unexpected Error');
         console.log(err);
