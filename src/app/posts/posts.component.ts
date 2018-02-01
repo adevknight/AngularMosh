@@ -1,5 +1,6 @@
 import { PostService } from './../services/post.service';
 import { Component, OnInit } from '@angular/core';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-posts',
@@ -49,6 +50,14 @@ export class PostsComponent implements OnInit {
   deletePost(post) {
     this.postService.deletePost({ id: 345 }).subscribe(res => {
       this.posts.splice(this.posts.indexOf(post), 1);
+    }, (err: Response) => {
+      if (err.status === 404) {
+        console.log('There is Expected Error');
+        console.log(err);
+      } else {
+        console.log('There is Unexpected Error');
+        console.log(err);
+      }
     });
   }
 }
