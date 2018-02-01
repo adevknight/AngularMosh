@@ -16,6 +16,9 @@ export class PostsComponent implements OnInit {
     // Putting Http.get() inside ngOnInit() is BEST PRACTICE
     this.postService.getPosts().subscribe(res => {
       this.posts = res.json();
+    }, err => {
+      console.log('There is Unexpected Error');
+      console.log(err);
     });
   }
 
