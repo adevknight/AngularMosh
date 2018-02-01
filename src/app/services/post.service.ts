@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class PostService {
-  private url = 'https://abcjsonplaceholder.typicode.com/posts';
+  private url = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: Http) { }
 
