@@ -1,3 +1,4 @@
+import { BadInputError } from './../common/errors/bad-input-error';
 import { NotFoundError } from './../common/errors/not-found-error';
 import { AppError } from './../common/errors/app-error';
 import { Injectable } from '@angular/core';
@@ -16,7 +17,13 @@ export class PostService {
   }
 
   createPost(x) {
-    return this.http.post(this.url, JSON.stringify(x));
+    return this.http.post(this.url, JSON.stringify(x)).catch((err: Response) => {
+      if (err.status === 400) {
+        return Observable.throw(new BadInputError(err.json()));
+      } else {
+        return Observable.throw(new AppError(err.json()));
+      }
+    });
   }
 
   updatePost(x) {
@@ -26,9 +33,9 @@ export class PostService {
   deletePost(x) {
     return this.http.delete(this.url + '/' + x.id).catch((err: Response) => {
       if (err.status === 404) {
-        return Observable.throw(new NotFoundError(err));
+        return Observable.throw(new NotFoundError(err.json()));
       } else {
-        return Observable.throw(new AppError(err));
+        return Observable.throw(new AppError(err.json()));
       }
     });
   }

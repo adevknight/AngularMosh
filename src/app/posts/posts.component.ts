@@ -1,3 +1,4 @@
+import { BadInputError } from './../common/errors/bad-input-error';
 import { NotFoundError } from './../common/errors/not-found-error';
 import { AppError } from './../common/errors/app-error';
 import { PostService } from './../services/post.service';
@@ -40,6 +41,14 @@ export class PostsComponent implements OnInit {
 
       console.log('POST: ' + sendedData.title.toString() + ' is SUCCESSFUL');
       console.log(res.json());
+    }, (err: AppError) => {
+      if (err instanceof BadInputError) {
+        console.log('This is a BadInputError');
+        console.log(err);
+      } else {
+        console.log('There is Unexpected Error');
+        console.log(err);
+      }
     });
   }
 
