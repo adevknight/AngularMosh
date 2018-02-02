@@ -1,3 +1,5 @@
+import { NotFoundError } from './../common/errors/not-found-error';
+import { AppError } from './../common/errors/app-error';
 import { PostService } from './../services/post.service';
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
@@ -50,9 +52,10 @@ export class PostsComponent implements OnInit {
   deletePost(post) {
     this.postService.deletePost({ id: 345 }).subscribe(res => {
       this.posts.splice(this.posts.indexOf(post), 1);
-    }, (err: Response) => {
-      if (err.status === 404) {
-        this.myform.setErrors(err.json());
+    }, (err: AppError) => {
+      if (err instanceof NotFoundError) {
+        console.log('This is NotFoundError');
+        console.log(err);
       } else {
         console.log('There is Unexpected Error');
         console.log(err);
