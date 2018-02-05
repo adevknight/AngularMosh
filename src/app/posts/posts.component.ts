@@ -20,9 +20,6 @@ export class PostsComponent implements OnInit {
     // Putting Http.get() inside ngOnInit() is BEST PRACTICE
     this.postService.getPosts().subscribe(res => {
       this.posts = res.json();
-    }, err => {
-      console.log('There is Unexpected Error');
-      console.log(err);
     });
   }
 
@@ -46,8 +43,7 @@ export class PostsComponent implements OnInit {
         console.log('This is a BadInputError');
         console.log(err);
       } else {
-        console.log('There is Unexpected Error');
-        console.log(err);
+        throw err;
       }
     });
   }
@@ -66,8 +62,7 @@ export class PostsComponent implements OnInit {
         console.log('This is NotFoundError');
         console.log(err);
       } else {
-        console.log('There is Unexpected Error');
-        console.log(err);
+        throw err;
       }
     });
   }
