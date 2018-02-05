@@ -57,9 +57,15 @@ export class PostsComponent implements OnInit {
   }
 
   deletePost(post) {
+    const index = this.posts.indexOf(post);
+    this.posts.splice(index, 1);
+
     this.postService.delete(post).subscribe(() => {
-      this.posts.splice(this.posts.indexOf(post), 1);
+      console.log('DELETE: ' + post.title + ' is SUCCESSFUL');
+      console.log(post);
     }, (err: AppError) => {
+      this.posts.splice(index, 0, post);
+
       if (err instanceof NotFoundError) {
         console.log('This is NotFoundError');
         console.log(err);
