@@ -5,6 +5,7 @@ import { BadInputError } from './../common/errors/bad-input-error';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
@@ -13,19 +14,27 @@ export class DataService {
   constructor(private url, private http: Http) { }
 
   getAll() {
-    return this.http.get(this.url).catch(this.handleErrors);
+    return this.http.get(this.url)
+      .map(response => response.json())
+      .catch(this.handleErrors);
   }
 
   create(x) {
-    return this.http.post(this.url, JSON.stringify(x)).catch(this.handleErrors);
+    return this.http.post(this.url, JSON.stringify(x))
+      .map(response => response.json())
+      .catch(this.handleErrors);
   }
 
   update(x) {
-    return this.http.put(this.url + '/' + x.id, JSON.stringify(x)).catch(this.handleErrors);
+    return this.http.put(this.url + '/' + x.id, JSON.stringify(x))
+      .map(response => response.json())
+      .catch(this.handleErrors);
   }
 
   delete(x) {
-    return this.http.delete(this.url + '/' + x.id).catch(this.handleErrors);
+    return this.http.delete(this.url + '/' + x.id)
+      .map(response => response.json())
+      .catch(this.handleErrors);
   }
 
   private handleErrors(err: Response) {
