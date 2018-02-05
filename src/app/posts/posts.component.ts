@@ -28,17 +28,19 @@ export class PostsComponent implements OnInit {
       title: title.value
     };
 
+    this.posts.splice(0, 0, sendedData);
+
     title.value = '';
 
     this.postService.create(sendedData).subscribe(res => {
       sendedData.id = res.id;
       console.log(sendedData);
 
-      this.posts.splice(0, 0, sendedData);
-
       console.log('POST: ' + sendedData.title.toString() + ' is SUCCESSFUL');
       console.log(res);
     }, (err: AppError) => {
+      this.posts.splice(0, 1);
+
       if (err instanceof BadInputError) {
         console.log('This is a BadInputError');
         console.log(err);
