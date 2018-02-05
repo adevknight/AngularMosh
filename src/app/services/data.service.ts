@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
+import 'rxjs/add/operator/retry';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
@@ -36,8 +37,8 @@ export class DataService {
     return this.http.delete(this.url + '/willCreateError/' + x.id)
       .timeout(5000)
       .map(response => response.json())
-      .catch(this.handleErrors)
-      .toPromise();
+      .retry(3)
+      .catch(this.handleErrors);
   }
 
   private handleErrors(err: Response) {
