@@ -9,7 +9,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class PostService {
-  private url = 'https://jsonplaceholder.typicode.com/posts';
+  private url = 'https://abcjsonplaceholder.typicode.com/posts';
 
   constructor(private http: Http) { }
 
