@@ -18,7 +18,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     // Putting Http.get() inside ngOnInit() is BEST PRACTICE
-    this.postService.getPosts().subscribe(res => {
+    this.postService.getAll().subscribe(res => {
       this.posts = res.json();
     });
   }
@@ -30,7 +30,7 @@ export class PostsComponent implements OnInit {
 
     title.value = '';
 
-    this.postService.createPost(sendedData).subscribe(res => {
+    this.postService.create(sendedData).subscribe(res => {
       sendedData.id = res.json().id;
       console.log(sendedData);
 
@@ -49,13 +49,13 @@ export class PostsComponent implements OnInit {
   }
 
   updatePost(post) {
-    this.postService.updatePost(post).subscribe(res => {
+    this.postService.update(post).subscribe(res => {
       console.log(res);
     });
   }
 
   deletePost(post) {
-    this.postService.deletePost(post).subscribe(res => {
+    this.postService.delete(post).subscribe(res => {
       this.posts.splice(this.posts.indexOf(post), 1);
     }, (err: AppError) => {
       if (err instanceof NotFoundError) {

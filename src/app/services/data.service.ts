@@ -12,19 +12,19 @@ export class DataService {
 
   constructor(private url, private http: Http) { }
 
-  getPosts() {
+  getAll() {
     return this.http.get(this.url).catch(this.handleErrors);
   }
 
-  createPost(x) {
+  create(x) {
     return this.http.post(this.url, JSON.stringify(x)).catch(this.handleErrors);
   }
 
-  updatePost(x) {
+  update(x) {
     return this.http.put(this.url + '/' + x.id, JSON.stringify(x)).catch(this.handleErrors);
   }
 
-  deletePost(x) {
+  delete(x) {
     return this.http.delete(this.url + '/' + x.id).catch(this.handleErrors);
   }
 
