@@ -60,7 +60,7 @@ export class PostsComponent implements OnInit {
     const index = this.posts.indexOf(post);
     this.posts.splice(index, 1);
 
-    this.postService.delete(post).subscribe(() => {
+    this.postService.delete(post).then((resolve) => {
       console.log('DELETE: ' + post.title + ' is SUCCESSFUL');
       console.log(post);
     }, (err: AppError) => {

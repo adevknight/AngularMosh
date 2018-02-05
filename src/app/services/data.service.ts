@@ -36,7 +36,8 @@ export class DataService {
     return this.http.delete(this.url + '/willCreateError/' + x.id)
       .timeout(5000)
       .map(response => response.json())
-      .catch(this.handleErrors);
+      .catch(this.handleErrors)
+      .toPromise();
   }
 
   private handleErrors(err: Response) {
