@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { GithubFollowersComponent } from './components/github-followers/github-followers.component';
+import { GithubProfileComponent } from './components/github-profile/github-profile.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { GithubFollowersComponent } from './components/github-followers/github-f
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    GithubFollowersComponent
+    GithubFollowersComponent,
+    GithubProfileComponent
   ],
   imports: [
     BrowserModule
