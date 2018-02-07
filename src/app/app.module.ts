@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { GithubFollowersComponent } from './components/github-followers/github-followers.component';
 import { GithubProfileComponent } from './components/github-profile/github-profile.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { PostsComponent } from './components/posts/posts.component';
     HomeComponent,
     GithubFollowersComponent,
     GithubProfileComponent,
-    PostsComponent
+    PostsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule
