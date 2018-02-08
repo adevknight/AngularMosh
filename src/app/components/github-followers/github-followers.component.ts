@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/combineLatest';
 
 @Component({
   selector: 'app-github-followers',
@@ -39,11 +41,20 @@ export class GithubFollowersComponent implements OnInit {
   constructor(private currentRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    // If the currentRoute were changed without re-creating/re-init the GithubFollowersComponent,
-    // then the page and sortBy will not be changed since this method is not using an Observable method.
-    this.page = +this.currentRoute.snapshot.queryParamMap.get('page');
-    this.sortBy = this.currentRoute.snapshot.queryParamMap.get('sortBy');
-    console.log('Currently on: page: ' + this.page + ', sortBy: ' + this.sortBy);
+    Observable.combineLatest([
+      this.currentRoute.paramMap,
+      this.currentRoute.queryParamMap
+    ]).subscribe(combined => {
+      // combined[0] will always refer to streams of data obtained from paramMap Observable
+      // combined[1] will always refer to streams of data obtained from queryParamMap Observable
+
+      console.log('username: ' + combined[0].get('username'));
+
+      this.page = +combined[1].get('page');
+      console.log('page: ' + this.page);
+      this.sortBy = combined[1].get('sortBy');
+      console.log('sortBy: ' + this.sortBy);
+    });
   }
 
 }
