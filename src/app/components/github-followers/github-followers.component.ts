@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-github-followers',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class GithubFollowersComponent implements OnInit {
+  page: number;
+  sortBy: string;
   users = [
     {
       name: 'John Snow',
@@ -33,9 +36,14 @@ export class GithubFollowersComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private currentRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.currentRoute.queryParamMap.subscribe(x => {
+      this.page = +x.get('page');
+      this.sortBy = x.get('sortBy');
+      console.log('Currently on: page: ' + this.page + ', sortBy: ' + this.sortBy);
+    });
   }
 
 }

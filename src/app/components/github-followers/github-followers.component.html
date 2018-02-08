@@ -1,6 +1,25 @@
 <p>
   github-followers works!
 </p>
+<p>Sort by: 
+  <span>| <a routerLink="/followers"
+             [queryParams]="{page: 1, sortBy: 'newest'}">Newest </a></span>
+  
+  <span>| <a [routerLink]="[]"
+             [queryParams]="{page: 2, sortBy: 'oldest'}">Oldest </a></span>
+  
+  <span>| <a routerLink="/followers"
+             [queryParams]="{page: 3, sortBy: 'highest'}">Highest </a></span>
+  
+  <span>| <a [routerLink]="[]"
+             [queryParams]="{page: 4, sortBy: 'lowest'}">Lowest </a></span>
+</p>
+
+<!-- When using [queryParams] you must also use either routerLink or [routerLink] 
+     routerLink="/followers" and [queryParams]="{x: 123}" will go to HOME/followers?x=123
+     [routerLink]="[]" and [queryParams]="{x: 123}" will go to CURRENT_ROUTE?x=123
+-->
+
 <ul *ngFor="let user of users">
   <li><a [routerLink]="['/followers', user.username]">{{ user.name }}</a></li>
 </ul>
