@@ -39,11 +39,11 @@ export class GithubFollowersComponent implements OnInit {
   constructor(private currentRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.currentRoute.queryParamMap.subscribe(x => {
-      this.page = +x.get('page');
-      this.sortBy = x.get('sortBy');
-      console.log('Currently on: page: ' + this.page + ', sortBy: ' + this.sortBy);
-    });
+    // If the currentRoute were changed without re-creating/re-init the GithubFollowersComponent,
+    // then the page and sortBy will not be changed since this method is not using an Observable method.
+    this.page = +this.currentRoute.snapshot.queryParamMap.get('page');
+    this.sortBy = this.currentRoute.snapshot.queryParamMap.get('sortBy');
+    console.log('Currently on: page: ' + this.page + ', sortBy: ' + this.sortBy);
   }
 
 }
