@@ -12,10 +12,10 @@ export class GithubProfileComponent implements OnInit {
   constructor(private currentRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.currentRoute.paramMap.subscribe(x => {
-      this.username = x.get('username');
-      console.log(x.get('username'));
-    });
+    // If the currentRoute were changed without re-creating/re-init the GithubProfileComponent,
+    // then the username will not be changed since this method is not using an Observable method.
+    this.username = this.currentRoute.snapshot.paramMap.get('username');
+    console.log(this.username);
   }
 
 }
