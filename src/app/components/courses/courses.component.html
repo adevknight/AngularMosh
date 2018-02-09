@@ -1,7 +1,4 @@
 <h3>{{ title }}</h3>
-<div (click)="onDivClick($event)">
-  <!-- It means apply .btn-primary to class if x === true -->
-  <button class="btn" [class.btn-primary]="x"
-                      [style.backgroundColor]="isGreen ? 'green' : 'grey'"
-                      (click)="onClick($event)">CLICK ME</button>
+<div>
+  <input type="text" placeholder="Type here..." (keyup)="onKeyUp($event, id)" #id>
 </div>

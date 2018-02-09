@@ -7,20 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
   title = 'This is the TITLE LOREM IPSUM DOLOR';
-  x = true;
-  isGreen = true;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onClick(x) {
-    x.stopPropagation();
-    console.log(x);
+  onKeyUp(x, id) {
+    // keyCode 13 is EQUAL to ENTER
+    if (x.keyCode === 13) {
+      console.log(id.value);
+    }
   }
 
-  onDivClick(y) {
-    console.log('DIV is Clicked: ' + y);
-  }
 }
