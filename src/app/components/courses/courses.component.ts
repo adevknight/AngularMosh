@@ -16,6 +16,7 @@ export class CoursesComponent implements OnInit {
   }
 
   onClick(x) {
+    x.stopPropagation();
     console.log(x);
   }
 
