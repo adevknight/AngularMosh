@@ -11,8 +11,7 @@
   <span>| <a routerLink="/followers"
              [queryParams]="{page: 3, sortBy: 'highest'}">Highest </a></span>
   
-  <span>| <a [routerLink]="[]"
-             [queryParams]="{page: 4, sortBy: 'lowest'}">Lowest </a></span>
+  <span>| <button (click)="lowest()">Lowest</button></span>
 </p>
 
 <!-- When using [queryParams] you must also use either routerLink or [routerLink] 

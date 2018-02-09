@@ -1,6 +1,6 @@
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/switchMap';
@@ -41,7 +41,7 @@ export class GithubFollowersComponent implements OnInit {
     }
   ];
 
-  constructor(private currentRoute: ActivatedRoute, private http: Http) { }
+  constructor(private currentRoute: ActivatedRoute, private http: Http, private router: Router) { }
 
   ngOnInit() {
     Observable.combineLatest([
@@ -61,6 +61,12 @@ export class GithubFollowersComponent implements OnInit {
       return this.http.get('https://jsonplaceholder.typicode.com/posts/' + this.page);
     }).subscribe(x => {
       this.body = x.json().body;
+    });
+  }
+
+  lowest() {
+    this.router.navigate([], {
+      queryParams: {page: 4, sortBy: 'lowest'}
     });
   }
 
