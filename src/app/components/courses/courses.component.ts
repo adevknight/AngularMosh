@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
   title = 'This is the TITLE LOREM IPSUM DOLOR';
-
+  content = 'Lorem ipsum dolor sit amet';
   constructor() { }
 
   ngOnInit() {
   }
 
   onKeyUp(x, y) {
-    console.log(y);
+    console.log(this.content);
   }
 
 }
