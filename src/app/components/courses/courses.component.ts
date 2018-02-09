@@ -14,10 +14,7 @@ export class CoursesComponent implements OnInit {
   }
 
   onKeyUp(x, id) {
-    // keyCode 13 is EQUAL to ENTER
-    if (x.keyCode === 13) {
-      console.log(id.value);
-    }
+    console.log(id.value);
   }
 
 }

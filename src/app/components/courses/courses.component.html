@@ -1,4 +1,4 @@
 <h3>{{ title }}</h3>
 <div>
-  <input type="text" placeholder="Type here..." (keyup)="onKeyUp($event, id)" #id>
+  <input type="text" placeholder="Type here..." (keyup.enter)="onKeyUp($event, id)" #id>
 </div>
