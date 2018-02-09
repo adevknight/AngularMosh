@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CoursesComponent implements OnInit {
   title = 'This is the TITLE LOREM IPSUM DOLOR';
   x = true;
+  isGreen = true;
 
   constructor() { }
 
