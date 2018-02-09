@@ -13,8 +13,8 @@ export class CoursesComponent implements OnInit {
   ngOnInit() {
   }
 
-  onKeyUp(x, id) {
-    console.log(id.value);
+  onKeyUp(x) {
+    console.log(x.target.value);
   }
 
 }
