@@ -1,7 +1,13 @@
 <h3>{{ title }}</h3>
 <div>
+  <!-- 'src' is DOM Attribute that has the same name as HTML Attribute -->
   <img src="{{ imgUrlA }}"><span>This is Property Binding Method 1</span>
+  
+  <!-- Sometimes the HTML Attribute's name will have a different name than its DOM Attribute's name  -->
+  <!-- in that case use 'attr.HTMLAttributeName' -->
+  <img attr.src="{{ imgUrlA }}"><span>This is Property Binding Method 1 - Using attr.</span>
 </div>
 <div>
   <img [src]="imgUrlB"><span>This is Property Binding Method 2</span>
+  <img [attr.src]="imgUrlB"><span>This is Property Binding Method 2 - Using attr.</span>
 </div>
