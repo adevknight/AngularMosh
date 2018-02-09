@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
@@ -12,6 +13,7 @@ import 'rxjs/add/operator/switchMap';
 export class GithubFollowersComponent implements OnInit {
   page: number;
   sortBy: string;
+  body: string;
   users = [
     {
       name: 'John Snow',
@@ -39,43 +41,27 @@ export class GithubFollowersComponent implements OnInit {
     }
   ];
 
-  constructor(private currentRoute: ActivatedRoute) { }
+  constructor(private currentRoute: ActivatedRoute, private http: Http) { }
 
   ngOnInit() {
-    // If you want to call somethingService whenever route's parameters or query parameters
-    // are changed then use .switchMap instead of nesting .somethingService inside .subscribe.
-    // Nesting .somethingService inside .subscribe will cause
-    // the nesting of .subscribe (of .somethingService) inside .subscribe
-
-    // Remember to use .switchMap() not .map()
-
     Observable.combineLatest([
       this.currentRoute.paramMap,
       this.currentRoute.queryParamMap
     ]).switchMap(combined => {
-      // do whatever you wanted to do with value of route's parameters and query parameters.
+      // combined[0] will always refer to streams of data obtained from paramMap Observable
+      // combined[1] will always refer to streams of data obtained from queryParamMap Observable
 
-      return this.somethingService.someMethod();
-    }).subscribe(val => {
-      // do whatever you wanted to do with val returned from .somethingService.someMethod().
+      console.log('username: ' + combined[0].get('username'));
+
+      this.page = +combined[1].get('page');
+      console.log('page: ' + this.page);
+      this.sortBy = combined[1].get('sortBy');
+      console.log('sortBy: ' + this.sortBy);
+
+      return this.http.get('https://jsonplaceholder.typicode.com/posts/' + this.page);
+    }).subscribe(x => {
+      this.body = x.json().body;
     });
-
-    /*
-      Let say you have following statements
-      obsA.switchMap(x => {
-        return obsB;
-      }).subscribe(y => {
-        console.log(y);
-      });
-
-      It means that wheneven obsA emit new value, we emit obsB value from very beginning again.
-      E.g:
-      obsA is an Observable of <button> click events, and
-      obsB is an Observable of incremental number values, i.e 1,2,3,4,5,6,so on
-
-      If we implement .switchMap() like above the stream of data become something like:
-      [Click],1,2,3,[Click],1,2,[Click],1,2,3,4,5,6,7,8,[Click],1,2,[Click],1,so on
-    */
   }
 
 }
