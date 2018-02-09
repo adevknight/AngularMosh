@@ -19,4 +19,7 @@ export class CoursesComponent implements OnInit {
     console.log(x);
   }
 
+  onDivClick(y) {
+    console.log('DIV is Clicked: ' + y);
+  }
 }

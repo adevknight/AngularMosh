@@ -1,5 +1,5 @@
 <h3>{{ title }}</h3>
-<div>
+<div (click)="onDivClick($event)">
   <!-- It means apply .btn-primary to class if x === true -->
   <button class="btn" [class.btn-primary]="x"
                       [style.backgroundColor]="isGreen ? 'green' : 'grey'"
