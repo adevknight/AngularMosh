@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  post = {
+    title: 'This is Title Lorem Ipsum',
+    isFavorite : true
+  };
+  onClick(x) {
+    this.post.isFavorite = !this.post.isFavorite;
+  }
 }
