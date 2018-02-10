@@ -1,5 +1,5 @@
 <h3>{{ course.title | uppercase | lowercase }}</h3>
 <p>{{ course.students | number }}</p>
 <p>{{ course.rating | number:'2.1-3'}}</p>
-<p>{{ course.price }}</p>
+<p>{{ course.price | currency }}</p>
 <p>{{ course.releaseDate }}</p>
