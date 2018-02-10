@@ -6,15 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class CoursesComponent implements OnInit {
-  title = 'This is the TITLE LOREM IPSUM DOLOR';
-  content = 'Lorem ipsum dolor sit amet';
+  course = {
+    title: 'The Complete Angular Course - Mosh Hamedani',
+    rating: 4.9745,
+    students: 3245,
+    price: 187.35,
+    releaseDate: new Date(2004, 0, 30)
+  };
+
   constructor() { }
 
   ngOnInit() {
-  }
-
-  onKeyUp(x, y) {
-    console.log(this.content);
   }
 
 }
