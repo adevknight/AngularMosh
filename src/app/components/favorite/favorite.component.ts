@@ -6,7 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styles: []
 })
 export class FavoriteComponent implements OnInit {
-  @Input() iptProp: boolean;
+  // tslint:disable-next-line:no-input-rename
+  @Input('iptPropAlias') iptProp: boolean;
 
   constructor() { }
 
