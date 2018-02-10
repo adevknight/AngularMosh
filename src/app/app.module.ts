@@ -8,13 +8,15 @@ import { CoursesComponent } from './components/courses/courses.component';
 
 import { registerLocaleData } from '@angular/common';
 import id from '@angular/common/locales/id';
+import { SummaryPipe } from './summary.pipe';
 
 registerLocaleData(id);
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesComponent
+    CoursesComponent,
+    SummaryPipe
   ],
   imports: [
     BrowserModule,
