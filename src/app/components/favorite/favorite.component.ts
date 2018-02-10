@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-favorite',
@@ -8,10 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FavoriteComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input('iptPropAlias') iptProp: boolean;
+  // tslint:disable-next-line:no-output-rename
+  @Output('optEventAlias') optEvent = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onWarning(x) {
+    this.iptProp = !this.iptProp;
+    this.optEvent.emit();
   }
 
 }

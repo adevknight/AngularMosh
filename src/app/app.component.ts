@@ -13,4 +13,8 @@ export class AppComponent {
   onClick(x) {
     this.post.isFavorite = !this.post.isFavorite;
   }
+  something() {
+    console.log('optEventAlias is HAPPENING');
+    this.post.isFavorite = !this.post.isFavorite;
+  }
 }
