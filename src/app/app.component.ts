@@ -1,3 +1,4 @@
+import { OptEventArguments } from './components/favorite/favorite.component';
 import { Component } from '@angular/core';
 
 @Component({
@@ -13,7 +14,7 @@ export class AppComponent {
   onClick(x) {
     this.post.isFavorite = !this.post.isFavorite;
   }
-  something(x) {
+  something(x: OptEventArguments) {
     console.log('optEventAlias is HAPPENING: ' + x.someData);
     this.post.isFavorite = !this.post.isFavorite;
   }

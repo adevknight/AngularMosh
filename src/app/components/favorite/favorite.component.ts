@@ -22,3 +22,7 @@ export class FavoriteComponent implements OnInit {
   }
 
 }
+
+export interface OptEventArguments {
+  someData: string;
+}
