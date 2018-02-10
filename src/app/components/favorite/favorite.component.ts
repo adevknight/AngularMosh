@@ -18,7 +18,7 @@ export class FavoriteComponent implements OnInit {
 
   onWarning(x) {
     this.iptProp = !this.iptProp;
-    this.optEvent.emit();
+    this.optEvent.emit({ someData: 'Lorem ipsum' });
   }
 
 }
