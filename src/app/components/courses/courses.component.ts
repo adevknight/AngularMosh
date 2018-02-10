@@ -10,7 +10,7 @@ export class CoursesComponent implements OnInit {
     title: 'The Complete Angular Course - Mosh Hamedani',
     rating: 4.9745,
     students: 3245,
-    price: 187.35,
+    price: 1870000.35,
     releaseDate: new Date(2004, 0, 30)
   };
 
