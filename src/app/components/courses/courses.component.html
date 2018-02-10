@@ -4,3 +4,4 @@
 <p>{{ course.price | currency:'IDR':'symbol-narrow':'4.2-2':'id' }}</p>
 <p>{{ course.price | currency:'IDR ':'symbol-narrow':'9.2-2':'id' }}</p>
 <p>{{ course.releaseDate | date:'medium' }}</p>
+<p>{{ course.text | summary: 60 }}</p>
