@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  courses = [1, 2, 3, 4, 5];
+  viewMode = 'something';
+  changeViewMode(x) {
+    this.viewMode = x;
+  }
 }
