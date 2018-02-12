@@ -7,11 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   courses = [1, 2, 3, 4, 5];
-  isCoursesAvail() {
-    if (this.courses.length > 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }
