@@ -36,4 +36,21 @@ export class AppComponent {
       title: 'Enim qui laborum veniam Lorem.',
     }
   ];
+  onAdd() {
+    this.courses.push({
+      id: 111,
+      title: 'Fugiat amet sint veniam dolor nulla cupidatat voluptate adipisicing.'
+    });
+  }
+  onDelete(x) {
+    const i = this.courses.indexOf(x);
+    this.courses.splice(i, 1);
+  }
+  onUpdate(x) {
+    const i = this.courses.indexOf(x);
+    this.courses.splice(i, 1, {
+      id: 999,
+      title: 'Laborum enim nulla minim elit elit.'
+    });
+  }
 }

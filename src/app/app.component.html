@@ -1,5 +1,8 @@
 <ul *ngFor="let x of courses; index as i; even as e">
     <li>
+        <button (click)="onDelete(x)">Delete</button>
+        <button (click)="onUpdate(x)">Update</button>
         {{ i + " - " + x.title }}<span *ngIf="e">{{ " (EVEN)" }}</span>
     </li>
 </ul>
+<button (click)="onAdd()">Add One</button>
