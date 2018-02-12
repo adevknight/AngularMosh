@@ -1,19 +1,5 @@
-<ul class="nav nav-pills">
-    <li class="nav-item" >
-        <a class="nav-link" [class.active]="viewMode === 'map'"
-           (click)="changeViewMode('map')">
-           Map View
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" [class.active]="viewMode === 'list'"
-           (click)="changeViewMode('list')">
-           List View
-        </a>
+<ul *ngFor="let x of courses; index as i; even as e">
+    <li>
+        {{ i + " - " + x.title }}<span *ngIf="e">{{ " (EVEN)" }}</span>
     </li>
 </ul>
-<div [ngSwitch]="viewMode">
-    <div *ngSwitchCase="'map'">This is Map Contents</div>
-    <div *ngSwitchCase="'list'">This is List Contents</div>
-    <div *ngSwitchDefault>This is Default Contents</div>
-</div>
