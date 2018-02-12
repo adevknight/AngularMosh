@@ -1,8 +1,14 @@
 <ul *ngFor="let x of courses; index as i; even as e">
     <li>
-        <button (click)="onDelete(x)">Delete</button>
-        <button (click)="onUpdate(x)">Update</button>
         {{ i + " - " + x.title }}<span *ngIf="e">{{ " (EVEN)" }}</span>
     </li>
 </ul>
-<button (click)="onAdd()">Add One</button>
+<button (click)="onLoad()">Load Courses</button>
+<!-- 
+    If we click 'Load Courses' button for one time it will load the Courses,
+    and if we click again it will also try to re-download and re-render the Courses
+    even though the content of the Courses remain unchanged,
+    and this is not good for website/app performance since re-downloading and re-rendering
+    the same content again and again require some more time, imagine if the Courses data 
+    contain thousands or even millions of data.
+ -->
