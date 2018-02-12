@@ -39,4 +39,7 @@ export class AppComponent {
       }
     ];
   }
+  someFunc(index, course) {
+    return (course) ? course.id : undefined;
+  }
 }

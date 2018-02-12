@@ -1,4 +1,4 @@
-<ul *ngFor="let x of courses; index as i; even as e">
+<ul *ngFor="let x of courses; index as i; even as e; trackBy: someFunc">
     <li>
         {{ i + " - " + x.title }}<span *ngIf="e">{{ " (EVEN)" }}</span>
     </li>
@@ -11,4 +11,6 @@
     and this is not good for website/app performance since re-downloading and re-rendering
     the same content again and again require some more time, imagine if the Courses data 
     contain thousands or even millions of data.
+
+    To solve this Performance Bottleneck we should use 'trackBy' inside *ngFor.
  -->
