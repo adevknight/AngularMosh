@@ -1,2 +1,2 @@
-<div>List of Courses:</div>
-<div>No Courses Yet</div>
+<div *ngIf="isCoursesAvail()">List of Courses:</div>
+<div *ngIf="!isCoursesAvail()">No Courses Yet</div>
