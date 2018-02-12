@@ -1,16 +1,15 @@
-<app-favorite>
-  This is One
-  <div class="classA">
-    This is Two
-    <div>
-      This is Two's Child
-    </div>
+<ng-container *ngIf="true">
+  <div>
+    <h3>Title One</h3>
+    <p>Paragraph One, 
+      <span>
+        Span One
+      </span>
+    </p>
   </div>
-  <div id="idA" class="classB">
-    This is Three
-    <div>
-      This is Three's Child
-    </div>
-  </div>
-  This is Five
-</app-favorite>
+</ng-container>
+<select>
+  <ng-container *ngFor="let course of courses">
+    <option>{{ course }}</option>
+  </ng-container>
+</select>
