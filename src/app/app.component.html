@@ -1,7 +1,5 @@
-<p [ngClass]="{
-    'red' : isRed,
-    'blue' : isBlue,
-    'brown' : isBrown
-}">
+<p [style.color]="isRed ? 'red' : '#ceeeeee'"
+   [style.backgroundColor]="isBlue ? 'blue' : '#ceeeeee'"
+   [style.borderColor]="isBrown ? 'brown' : '#ceeeeee'">
     Do quis aliqua id laborum et ipsum officia et in voluptate exercitation ipsum.
 </p>
