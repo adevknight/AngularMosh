@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isRed = true;
-  isBlue = true;
+  isBlue = false;
   isBrown = false;
 }

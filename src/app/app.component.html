@@ -1,3 +1,7 @@
-<p [class.red]="isRed" [class.blue]="isBlue" [class.brown]="isBrown">
+<p [ngClass]="{
+    'red' : isRed,
+    'blue' : isBlue,
+    'brown' : isBrown
+}">
     Do quis aliqua id laborum et ipsum officia et in voluptate exercitation ipsum.
 </p>
