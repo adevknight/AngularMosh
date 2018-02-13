@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isRed = true;
-  isBlue = false;
-  isBrown = false;
+  task = {
+    title: 'Amet quis quis consequat ea occaecat do.',
+    assignee: {
+      name: 'John Snow'
+    }
+  };
 }
