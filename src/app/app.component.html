@@ -1,5 +1,7 @@
-<p [style.color]="isRed ? 'red' : '#ceeeeee'"
-   [style.backgroundColor]="isBlue ? 'blue' : '#ceeeeee'"
-   [style.borderColor]="isBrown ? 'brown' : '#ceeeeee'">
+<p [ngStyle]="{
+    'color' : isRed ? 'red' : '#ceeeee',
+    'backgroundColor' : isBlue ? 'blue' : '#ceeeee',
+    'borderColor' : isBrown ? 'brown' : '#ceeeee'
+}">
     Do quis aliqua id laborum et ipsum officia et in voluptate exercitation ipsum.
 </p>
