@@ -9,7 +9,7 @@ export class AppComponent {
   task = {
     title: 'Amet quis quis consequat ea occaecat do.',
     assignee: {
-      name: 'John Snow'
+      name: null
     }
   };
 }
