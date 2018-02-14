@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class FormComponent implements OnInit {
+  langs: string[] = [
+    'English',
+    'French',
+    'German',
+    'Russian',
+    'Spanish'
+  ];
 
   constructor() { }
 
