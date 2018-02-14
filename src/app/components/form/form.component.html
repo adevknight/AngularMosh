@@ -2,7 +2,7 @@
      to handle form validation (by default),
      because we want to handle validation by our own measures.
 -->
-<form novalidate>
+<form [formGroup]="myForm" novalidate>
 
   <fieldset>
     <div class="form-group">
@@ -34,6 +34,10 @@
         {{ lang }}
       </option>
     </select>
+  </div>
+
+  <div>
+    {{ myForm.value | json }}
   </div>
 
 </form>
