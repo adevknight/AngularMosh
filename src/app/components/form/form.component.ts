@@ -21,8 +21,8 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.myForm = new FormGroup({
       name: new FormGroup({
-        firstName: new FormControl(),
-        lastName: new FormControl()
+        firstName: new FormControl('Type Your First Name'),
+        lastName: new FormControl('Type Your Last Name')
       }),
       email: new FormControl(),
       password: new FormControl(),
