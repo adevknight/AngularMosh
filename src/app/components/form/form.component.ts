@@ -4,7 +4,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styles: []
+  styles: [`
+    .has-success {
+        border: 2px solid green;
+    }
+    .has-danger {
+        border: 2px solid red;
+    }
+  `]
 })
 export class FormComponent implements OnInit {
   langs: string[] = [
