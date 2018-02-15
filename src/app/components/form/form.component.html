@@ -8,16 +8,16 @@
     <div class="form-group">
       <label>First Name</label>
       <input type="text" class="form-control" formControlName="firstName" [ngClass]="{
-        'has-danger': myForm.controls.name.controls.firstName.invalid && (myForm.controls.name.controls.firstName.dirty || myForm.controls.name.controls.firstName.touched),
-        'has-success': myForm.controls.name.controls.firstName.valid && (myForm.controls.name.controls.firstName.dirty || myForm.controls.name.controls.firstName.touched)
+        'has-danger': firstName.invalid && (firstName.dirty || firstName.touched),
+        'has-success': firstName.valid && (firstName.dirty || firstName.touched)
       }">
     </div>
 
     <div class="form-group">
       <label>Last Name</label>
       <input type="text" class="form-control" formControlName="lastName" [ngClass]="{
-        'has-danger': myForm.controls.name.controls.lastName.invalid && (myForm.controls.name.controls.lastName.dirty || myForm.controls.name.controls.lastName.touched),
-        'has-success': myForm.controls.name.controls.lastName.valid && (myForm.controls.name.controls.lastName.dirty || myForm.controls.name.controls.lastName.touched)
+        'has-danger': lastName.invalid && (lastName.dirty || lastName.touched),
+        'has-success': lastName.valid && (lastName.dirty || lastName.touched)
       }">
     </div>
   </fieldset>
@@ -25,24 +25,24 @@
   <div class="form-group">
     <label>Email</label>
     <input type="email" class="form-control" formControlName="email" [ngClass]="{
-      'has-danger': myForm.controls.email.invalid && (myForm.controls.email.dirty || myForm.controls.email.touched),
-      'has-success': myForm.controls.email.valid && (myForm.controls.email.dirty || myForm.controls.email.touched)
+      'has-danger': email.invalid && (email.dirty || email.touched),
+      'has-success': email.valid && (email.dirty || email.touched)
     }">
   </div>
 
   <div class="form-group">
     <label>Password</label>
     <input type="password" class="form-control" formControlName="password" [ngClass]="{
-      'has-danger': myForm.controls.password.invalid && (myForm.controls.password.dirty || myForm.controls.password.touched),
-      'has-success': myForm.controls.password.valid && (myForm.controls.password.dirty || myForm.controls.password.touched)
+      'has-danger': password.invalid && (password.dirty || password.touched),
+      'has-success': password.valid && (password.dirty || password.touched)
     }">
   </div>
 
   <div class="form-group">
     <label>Language</label>
     <select class="form-control" formControlName="language" [ngClass]="{
-      'has-danger': myForm.controls.language.invalid && (myForm.controls.language.dirty || myForm.controls.language.touched),
-      'has-success': myForm.controls.language.valid && (myForm.controls.language.dirty || myForm.controls.language.touched)
+      'has-danger': language.invalid && (language.dirty || language.touched),
+      'has-success': language.valid && (language.dirty || language.touched)
     }">
       <option value="">Please select a language</option>
       <option *ngFor="let lang of langs" [value]="lang">

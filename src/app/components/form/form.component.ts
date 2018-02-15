@@ -23,23 +23,37 @@ export class FormComponent implements OnInit {
   ];
 
   myForm: FormGroup;
+  // name: FormGroup; // No Need to Declare
+  firstName: FormControl;
+  lastName: FormControl;
+  email: FormControl;
+  password: FormControl;
+  language: FormControl;
+
   constructor() { }
 
   ngOnInit() {
+    this.initFormControl();
+    this.initFormGroup();
+  }
+
+  initFormControl() {
+    this.firstName = new FormControl('Type Your First Name', Validators.required);
+    this.lastName =  new FormControl('Type Your Last Name', Validators.required);
+    this.email = new FormControl('', [Validators.required, Validators.email]);
+    this.password = new FormControl('', [Validators.required, Validators.minLength(8)]);
+    this.language = new FormControl('', Validators.required);
+  }
+
+  initFormGroup() {
     this.myForm = new FormGroup({
       name: new FormGroup({
-        firstName: new FormControl('Type Your First Name', Validators.required),
-        lastName: new FormControl('Type Your Last Name', Validators.required)
+        firstName: this.firstName,
+        lastName: this.lastName
       }),
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(8)
-      ]),
-      language: new FormControl('', Validators.required)
+      email: this.email,
+      password: this.password,
+      language: this.language
     });
   }
 
