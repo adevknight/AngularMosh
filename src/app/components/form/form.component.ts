@@ -64,4 +64,9 @@ export class FormComponent implements OnInit {
       console.log('Form is Invalid');
     }
   }
+
+  onReset() {
+    this.myForm.reset();
+  }
+
 }
