@@ -2,7 +2,7 @@
      to handle form validation (by default),
      because we want to handle validation by our own measures.
 -->
-<form [formGroup]="myForm" novalidate>
+<form [formGroup]="myForm" novalidate (ngSubmit)="onSubmit()">
 
   <fieldset formGroupName="name">
     <div class="form-group">
@@ -63,5 +63,7 @@
   <div>
     {{ myForm.value | json }}
   </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>
