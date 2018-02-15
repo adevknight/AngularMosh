@@ -36,6 +36,15 @@
       'has-danger': password.invalid && (password.dirty || password.touched),
       'has-success': password.valid && (password.dirty || password.touched)
     }">
+    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+      <span *ngIf="password.errors.required">
+        Password is required
+      </span>
+      <span *ngIf="password.errors.minlength">
+        Password must be at least 8 characters,
+        you need {{ password.errors.minlength.requiredLength - password.errors.minlength.actualLength }} more characters.
+      </span>
+    </div>
   </div>
 
   <div class="form-group">
