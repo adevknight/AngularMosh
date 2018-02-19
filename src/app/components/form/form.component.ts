@@ -1,3 +1,4 @@
+import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class FormComponent implements OnInit {
+  searchField: FormControl;
+  searchHistory: string[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.searchField = new FormControl();
+    this.searchField.valueChanges.subscribe(term => {
+      console.log(term);
+    });
   }
 
 }

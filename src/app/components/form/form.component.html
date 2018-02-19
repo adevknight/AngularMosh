@@ -1,0 +1,6 @@
+<!-- Here we use [formControl] instead of formControlName -->
+<input type="search" class="form-control" placeholder="Please enter search term" [formControl]="searchField">
+<hr/>
+<ul>
+    <li *ngFor="let search of searchHistory">{{ search }}</li>
+</ul>
