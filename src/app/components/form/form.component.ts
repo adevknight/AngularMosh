@@ -14,6 +14,8 @@ export class FormComponent implements OnInit {
     'Spanish'
   ];
 
+  firstName = 'Type Your First Name';
+
   constructor() { }
 
   ngOnInit() {
