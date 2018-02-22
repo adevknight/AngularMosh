@@ -30,6 +30,10 @@ export class FormComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(data) {
+    console.log(data.value);
+  }
+
 }
 
 class MyFormModel {
