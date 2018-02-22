@@ -2,7 +2,7 @@
      to handle form validation (by default),
      because we want to handle validation by our own measures.
 -->
-<form novalidate>
+<form novalidate #myForm="ngForm">
 
   <fieldset>
     <div class="form-group">
@@ -35,5 +35,9 @@
       </option>
     </select>
   </div>
-
+  
+  <div>
+    {{ myForm.value | json }}
+  </div>
+  
 </form>
