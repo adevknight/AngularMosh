@@ -2,7 +2,7 @@
      to handle form validation (by default),
      because we want to handle validation by our own measures.
 -->
-<form novalidate #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+<form novalidate #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" (ngReset)="onReset()">
 
   <fieldset ngModelGroup="name">
     <div class="form-group">
@@ -52,6 +52,10 @@
   
   <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">
     Submit
+  </button>
+
+  <button type="reset" class="btn btn-secondary">
+    Reset
   </button>
 
 </form>

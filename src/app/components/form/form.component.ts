@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -25,6 +25,9 @@ export class FormComponent implements OnInit {
 
   model: MyFormModel = new MyFormModel();
 
+  // 'myForm' is Template Reference Variable in 'form.component.html'
+  @ViewChild('myForm') form: any;
+
   constructor() { }
 
   ngOnInit() {
@@ -32,6 +35,10 @@ export class FormComponent implements OnInit {
 
   onSubmit(data) {
     console.log(data.value);
+  }
+
+  onReset() {
+    this.form.reset();
   }
 
 }
